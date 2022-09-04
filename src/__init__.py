@@ -6,11 +6,12 @@ import yaml
 with open('spotify-client.yaml', 'r') as f:
     client = yaml.safe_load(f)
 
-sp = spotipy.Spotify(
-    auth_manager=SpotifyOAuth(client_id=client['client_id'],
-                              client_secret=client['client_secret'],
-                              scope='app-remote-control',
-                              redirect_uri='https://127.0.0.1'))
+auth = SpotifyOAuth(client_id=client['client_id'],
+                    client_secret=client['client_secret'],
+                    scope='user-read-currently-playing',
+                    redirect_uri='http://localhost:8080')
+
+sp = spotipy.Spotify(auth_manager=auth)
 results = sp.currently_playing()
 
-print(results)
+print(results['item']['name'])
