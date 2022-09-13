@@ -3,3 +3,4 @@ numpy==1.21.6
 opencv-python==4.6.0.66
 spotipy~=2.20.0
 pyyaml~=6.0
+neptune-client==0.14.3
