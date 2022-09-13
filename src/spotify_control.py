@@ -19,7 +19,6 @@ class SpotifyUser:
         self.api.volume(self.volume)
 
 
-
     def change_playback(self):
         if self.is_playing:
             self.api.pause_playback()
